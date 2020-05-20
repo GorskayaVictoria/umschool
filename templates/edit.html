@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+{% for error in errors %}
+    <p style="color:#73abff;">{{ error }}</p>
+{% endfor %}
+<form id="edit-form" name="edit-form" class="nobottommargin" action="{% url 'edit' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <label for="{{ form.email.id_for_label }}">Email Address:</label>
+        {{ form.email }}
+    <br/>
+
+        <label for="{{ form.username.id_for_label }}">Choose a Username:</label>
+        {{ form.username }}
+
+    <br/>
+            <label for="{{ form.last_name.id_for_label }}">last a Username:</label>
+        {{ form.last_name }}
+
+    <br/>
+            <label for="{{ form.first_name.id_for_label }}">first a Username:</label>
+        {{ form.first_name }}
+
+    <br/>
+    <label for="{{ form.profile_pic.id_for_label }}">ProfilePic:</label>
+        {{ form.profile_pic }}
+
+
+<br/>
+      <button  id="submit" value="edit" >Edit Now</button>
+</form>
+{% endblock %}

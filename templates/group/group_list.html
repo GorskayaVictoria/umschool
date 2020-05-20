@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+
+        {% for post in object_list %}
+            <br>
+            <h1>куратор {{ post.kurator }}</h1>
+            <h3>курс {{ post.course.name }}</h3>
+            {% for them in post.students.all %}
+                <h3>ТЕМА {{ them.username }}</h3>
+            {% endfor %}
+            <a href="{% url 'group_detail' post.id %}">ссылка</a>
+        {% endfor %}
+{% endblock %}

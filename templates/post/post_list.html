@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        {% for post in object_list %}
+            <br>
+            <h1>АЙДИ {{ post.id }}</h1>
+            <h3>АВТОР {{ post.author }}</h3>
+            {% for them in post.thema.all %}
+                <h3>ТЕМА {{ them.name }}</h3>
+                <h3>СЛОЖНОСТЬ {{ them.complexity }}</h3>
+            {% endfor %}
+            <a href="{% url 'post_detail' post.id %}">{{ post.text }}</a>
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        {% for course in object_list %}
+            <br>
+            <h1>АЙДИ {{ course.id }}</h1>
+            <h3>Цена {{ course.price }}</h3>
+            {% for les in course.lessons.all %}
+                <h3>ТЕМА {{ les.name }}</h3>
+            {% endfor %}
+            <a href="{% url 'course_detail' course.id %}">{{ course.name }}</a>
+        {% endfor %}
+{% endblock %}

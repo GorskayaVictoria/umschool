@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+  <table>
+    {% for form in formset %}
+        <ul>
+            <h2>{{ form.getSol.solution}}</h2>
+            <h2>{{ form.isTrue }}</h2>
+        </ul>
+
+    {% endfor %}
+    </table>
+    <input type="submit" value="Submit order" class="btn btn-primary">
+</form>
+{% endblock %}

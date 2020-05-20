@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+  <table>
+    {% for form in formset %}
+        <ul>
+            <h2>
+                {{ form.getVar.text}}
+            </h2>
+            <h2>{{ form.solution }}</h2>
+            {% if form.getTask.number > 23 %}
+                <h2>{{ form.profile_pic }}</h2>
+            {% endif %}
+        </ul>
+
+    {% endfor %}
+    </table>
+    <input type="submit" value="Submit order" class="btn btn-primary">
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+
+{% for error in errors %}
+    <p style="color:#73abff;">{{ error }}</p>
+{% endfor %}
+
+<form action="{% url 'resetNone' %}" method="post">
+    {% csrf_token %}
+     {{ form.as_p }}
+    <input type="submit" value="pass">
+</form>
+
+{% endblock %}

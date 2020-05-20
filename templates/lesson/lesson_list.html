@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        {% for task in object_list %}
+            <br>
+            <h1>АЙДИ {{ task.id }}</h1>
+
+             <a href="{{ task.video }}">Видео</a>
+            <a href="{% url 'lesson_detail' task.id %}">{{ task.name }}</a>
+    {% endfor %}
+{% endblock %}

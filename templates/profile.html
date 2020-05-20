@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ user.first_name }} {{ user.last_name }} {% endblock %}
+{% block content %}
+<h1>{{ user.username }}</h1>
+<h2> {{ user.email }}</h2>
+<img src="{% static user.profile_pic.url %}" style="max-width: 500px" alt="no photo">
+
+{% for les in lessons %}
+     <a href="{% url 'lesson_detail' les.id %}">{{ les.name }}</a>
+{% endfor %}
+{% endblock %}

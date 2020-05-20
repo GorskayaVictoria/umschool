@@ -1,0 +1,42 @@
+ {% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+<div class="row center">
+    <h3>Register </h3>
+</div>
+{% for error in errors %}
+    <p style="color:#73abff;">{{ error }}</p>
+{% endfor %}
+<form id="register-form" name="register-form" class="nobottommargin" action="{% url 'register' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <label for="{{ form.email.id_for_label }}">Email Address:</label>
+        {{ form.email }}
+    <br/>
+
+        <label for="{{ form.username.id_for_label }}">Choose a Username:</label>
+        {{ form.username }}
+
+    <br/>
+        <label for="{{ form.password.id_for_label }}">Choose Password:</label>
+        {{ form.password }}
+
+    <br/>
+            <label for="{{ form.last_name.id_for_label }}">last a Username:</label>
+        {{ form.last_name }}
+
+    <br/>
+            <label for="{{ form.first_name.id_for_label }}">first a Username:</label>
+        {{ form.first_name }}
+
+    <br/>
+    <label for="{{ form.profile_pic.id_for_label }}">ProfilePic:</label>
+        {{ form.profile_pic }}
+        <br/>
+
+        <label for="{{ form.confirm_password.id_for_label }}">Re-enter Password:</label>
+        {{ form.confirm_password }}
+
+<br/>
+      <button  id="submit" value="register" >Register Now</button>
+</form>
+ {% endblock %}

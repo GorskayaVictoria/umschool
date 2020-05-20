@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Title{% endblock %}
+{% block content %}
+{% for them in object.students.all %}
+      <h2>{{ them.username }}</h2>
+      <a href="{% url 'stats' group.id them.id %}">ссылка</a>
+{% endfor %}
+
+  <h1>{{ object.course.name }}</h1>
+  <h2>{{ object.kurator }}</h2>
+
+
+{% endblock %}
